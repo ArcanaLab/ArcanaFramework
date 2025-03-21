@@ -3,16 +3,17 @@ package ArcanaFramework;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
 
-public abstract class GameEntity {
+public abstract class GameEntity extends Actor {
     //Transform variables
     protected Vector2 position;
     protected Vector2 size;
     protected float rotation;
     //Visibility - Controls if we hide the element
     protected boolean visible;
-    protected Texture texture;
+    protected Texture art;
 
     public GameEntity(Vector2 position, Vector2 size, float rotation, Texture texture)
     {
@@ -20,7 +21,7 @@ public abstract class GameEntity {
         this.size      = size;
         this.rotation  = rotation;
         this.visible   = true;
-        this.texture   = texture;
+        this.art = texture;
     }
     public GameEntity(Vector2 position, Vector2 size, float rotation, Texture texture, boolean visible)
     {
@@ -28,7 +29,7 @@ public abstract class GameEntity {
         this.size      = size;
         this.rotation  = rotation;
         this.visible   = visible;
-        this.texture   = texture;
+        this.art = texture;
     }
     //SETTERS
     public void setPosition(float x, float y)
@@ -43,9 +44,9 @@ public abstract class GameEntity {
     {
         this.visible = visible;
     }
-    public void setTexture(Texture texture)
+    public void setArt(Texture art)
     {
-        this.texture = texture;
+        this.art = art;
     }
     //GETTERS
     public Vector2 getPosition()
@@ -62,9 +63,9 @@ public abstract class GameEntity {
     }
     //Functions
     public void draw(SpriteBatch batch) {
-        if (texture != null) {
-            batch.draw(texture, position.x, position.y, size.x / 2, size.y / 2, size.x, size.y, 1, 1, rotation, 0, 0,
-                texture.getWidth(), texture.getHeight(), false, false);
+        if (art != null) {
+            batch.draw(art, position.x, position.y, size.x / 2, size.y / 2, size.x, size.y, 1, 1, rotation, 0, 0,
+                art.getWidth(), art.getHeight(), false, false);
         }
     }
 
