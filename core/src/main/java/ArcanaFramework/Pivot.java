@@ -16,6 +16,10 @@ public enum Pivot {
         this.pivotX = pivotX;
         this.pivotY = pivotY;
     }
+    Pivot(float pivotX, float pivotY, float offsetX, float offsetY) {
+        this.pivotX = pivotX - offsetX;
+        this.pivotY = pivotY - offsetY;
+    }
 
     /*
      * Returns the adjusted position based on the pivot point

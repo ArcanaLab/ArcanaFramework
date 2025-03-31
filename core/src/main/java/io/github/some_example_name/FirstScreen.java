@@ -15,6 +15,7 @@ public class FirstScreen implements Screen {
     private Texture cardArt;
     private Texture cardBorder;
     private Card<String> testCard;
+    private Card<String> testCard2;
     @Override
     public void show() {
         // Prepare your screen here.
@@ -23,10 +24,16 @@ public class FirstScreen implements Screen {
         cardArt = new Texture("CardArt/FireLord.jpg");
         cardBorder = new Texture("CardBorder/NT_AMBER.png");
 
+
+
         Vector2 cardPos = new Vector2(150, 150);
-        Vector2 cardSize = new Vector2(250, 250);
+        Vector2 cardSize = new Vector2(250, 150);
+
+        Vector2 cardPos2 = new Vector2(300, 150);
+        testCard2 = new Card(cardPos2,cardSize,cardArt,cardBorder,"Puto el que lee");
 
         testCard = new Card(cardPos,cardSize,cardArt,cardBorder,"FireLord");
+
     }
     @Override
     public void render(float delta) {
@@ -35,7 +42,9 @@ public class FirstScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.begin();
+        testCard2.draw(spriteBatch);
         testCard.draw(spriteBatch);
+
         spriteBatch.end();
 
         testCard.update(delta);
