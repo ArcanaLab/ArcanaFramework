@@ -14,6 +14,7 @@ public class Card<V> extends UIElement
     private Pivot[] pivotsInCard;
     private Texture art;
     private boolean toggleOpacity = false;
+
     public Card(Vector2 position, Vector2 size, Texture art, Texture borderTexture,V value) {
         super(position, size, 0.0f);
         this.borderTexture = borderTexture;
@@ -43,6 +44,7 @@ public class Card<V> extends UIElement
     public void update(float delta) {
         //Do something
     }
+
     public void onHover() {
         if (!toggleOpacity) {
             setOpacity(0.5f);
