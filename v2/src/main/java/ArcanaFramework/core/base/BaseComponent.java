@@ -1,3 +1,3 @@
-package ArcanaFramework.core.component;
+package ArcanaFramework.core.base;
 
 public interface BaseComponent {}

@@ -1,3 +1,3 @@
-package ArcanaFramework.core.entity;
+package ArcanaFramework.core.base;
 
 public interface BaseEntity {}
