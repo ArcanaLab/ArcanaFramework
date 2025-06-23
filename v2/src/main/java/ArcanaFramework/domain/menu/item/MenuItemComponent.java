@@ -3,7 +3,9 @@ package ArcanaFramework.domain.menu.item;
 import ArcanaFramework.core.base.BaseComponent;
 
 public class MenuItemComponent implements BaseComponent {
-    private MenuItemEntity menuItemEntity;
+    public String label;
+    public String actionId;
+    private final MenuItemEntity menuItemEntity;
 
     public MenuItemComponent(MenuItemEntity menuItemEntity) {
         this.menuItemEntity = menuItemEntity;
