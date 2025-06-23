@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
 import ArcanaFramework.helpers.StartupHelper;
 
-public class ArcanaGameModule {
+public class ArcanaLauncher {
     private ApplicationListener application;
     private final Lwjgl3ApplicationConfiguration configuration;
 
