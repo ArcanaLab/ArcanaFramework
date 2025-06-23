@@ -14,7 +14,7 @@
  */
 //Note, the above license and copyright applies to this file only.
 
-package ArcanaFramework.helpers;
+package ArcanaFramework.core.helper;
 
 import java.io.BufferedReader;
 import java.io.File;
