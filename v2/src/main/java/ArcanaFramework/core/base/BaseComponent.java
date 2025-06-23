@@ -1,3 +1,3 @@
 package ArcanaFramework.core.component;
 
-public interface GameComponent {}
+public interface BaseComponent {}

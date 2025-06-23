@@ -1,3 +1,3 @@
 package ArcanaFramework.core.entity;
 
-public interface GameEntity {}
+public interface BaseEntity {}
