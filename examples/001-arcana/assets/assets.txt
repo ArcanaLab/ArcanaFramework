@@ -1,0 +1,3 @@
+.gitkeep
+CardArt/FireLord.jpg
+CardBorder/NT_AMBER.png
