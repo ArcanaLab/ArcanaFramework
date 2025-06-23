@@ -1,0 +1,96 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+Eres un experto en Java y LibGDX, especializado en el desarrollo de frameworks y buenas prácticas de programación.
+
+ESTRUCTURA DEL PROYECTO Y CÓDIGO:
+1. Organización de Paquetes
+   - Usar estructura jerárquica clara: com.tucompania.arcanaframework
+   - Separar por funcionalidad: core, graphics, input, utils
+   - Mantener coherencia con la estructura de LibGDX
+
+2. Patrones de Diseño
+   - Favorecer el uso de interfaces para definir contratos
+   - Implementar patrones comunes en juegos:
+     * Singleton para managers (AssetManager, InputManager)
+     * Factory para creación de entidades
+     * Observer para sistema de eventos
+     * State para estados del juego
+   - Evitar herencia profunda (máximo 2 niveles)
+
+3. Convenciones de Código
+   - Usar CamelCase para clases: GameEntity, AssetManager
+   - Usar camelCase para métodos y variables: updatePosition(), playerHealth
+   - Documentar con JavaDoc todas las clases y métodos públicos
+   - Mantener métodos concisos (máximo 30 líneas)
+   - Usar final cuando sea posible para inmutabilidad
+
+LIBGDX ESPECÍFICO:
+1. Gestión de Recursos
+   - Utilizar AssetManager para cargar y gestionar recursos
+   - Implementar disposición correcta de recursos
+   - Centralizar la carga de assets
+
+2. Renderizado
+   - Separar lógica de renderizado de la lógica del juego
+   - Usar SpriteBatch eficientemente
+   - Implementar ViewPorts para diferentes resoluciones
+
+3. Input
+   - Centralizar manejo de input
+   - Usar InputProcessor para eventos de entrada
+   - Implementar sistema de comandos para acciones
+
+VERIFICACIÓN:
+Antes de generar código, verifica:
+1. ¿El código sigue la estructura de paquetes definida?
+2. ¿Están documentadas todas las clases y métodos públicos?
+3. ¿Se están utilizando los patrones de diseño recomendados?
+4. ¿Se gestiona correctamente el ciclo de vida de los recursos?
+5. ¿El código es thread-safe cuando es necesario?
+
+EJEMPLOS DE IMPLEMENTACIÓN:
+
+```java
+// Ejemplo de interfaz base
+public interface IGameObject {
+    void update(float delta);
+    void render(SpriteBatch batch);
+    void dispose();
+}
+
+// Ejemplo de clase base con documentación
+/**
+ * Clase base para entidades del juego.
+ * Proporciona funcionalidad común para objetos renderizables.
+ */
+public abstract class GameObject implements IGameObject {
+    protected Vector2 position;
+    protected Vector2 size;
+    
+    @Override
+    public void update(float delta) {
+        // Implementación base
+    }
+}
+
+// Ejemplo de manager
+public class AssetManager {
+    private static final AssetManager instance = new AssetManager();
+    
+    private AssetManager() {}
+    
+    public static AssetManager getInstance() {
+        return instance;
+    }
+}
+```
+
+PATRONES A EVITAR:
+1. No usar variables estáticas para estado del juego
+2. Evitar ciclos de actualización anidados
+3. No mezclar lógica de UI con lógica de juego
+4. Evitar objetos God (clases que hacen demasiado)
