@@ -1,9 +1,14 @@
 package ArcanaFramework.domain.playerhand;
 
 import ArcanaFramework.core.base.BaseComponent;
+import ArcanaFramework.domain.card.CardEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerHandComponent implements BaseComponent {
-    private PlayerHandEntity playerHandEntity;
+    public List<CardEntity> cards = new ArrayList<>();
+    private final PlayerHandEntity playerHandEntity;
 
     public PlayerHandComponent(PlayerHandEntity playerHandEntity) {
         this.playerHandEntity = playerHandEntity;
@@ -11,6 +16,6 @@ public class PlayerHandComponent implements BaseComponent {
 
     @Override
     public PlayerHandEntity getEntity() {
-        return this.playerHandEntity;
+        return playerHandEntity;
     }
 }
