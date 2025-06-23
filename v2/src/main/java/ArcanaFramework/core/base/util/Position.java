@@ -1,4 +1,4 @@
-package ArcanaFramework.core.base.ui;
+package ArcanaFramework.core.base.util;
 
 public class Position {
     public float x;
