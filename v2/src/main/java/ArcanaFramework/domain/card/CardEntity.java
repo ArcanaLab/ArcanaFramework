@@ -1,5 +1,9 @@
 package ArcanaFramework.domain.card;
 
-import ArcanaFramework.core.base.BaseEntity;
+import ArcanaFramework.core.base.AbstractEntity;
 
-public class CardEntity implements BaseEntity {}
+public class CardEntity extends AbstractEntity {
+    public CardEntity(){
+        add(new CardComponent(this));
+    }
+}
