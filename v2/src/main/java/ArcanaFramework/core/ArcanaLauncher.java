@@ -5,20 +5,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
-import ArcanaFramework.helpers.StartupHelper;
+import ArcanaFramework.core.helper.StartupHelper;
 
 public class ArcanaLauncher {
     private ApplicationListener application;
     private final Lwjgl3ApplicationConfiguration configuration;
 
-    Launcher(ApplicationListener application, Lwjgl3ApplicationConfiguration configuration) {
+    ArcanaLauncher(ApplicationListener application, Lwjgl3ApplicationConfiguration configuration) {
         this.application = application;
         this.configuration = configuration;
 
         Gdx.graphics.setContinuousRendering(false);
     }
 
-    Launcher(ApplicationListener application) {
+    ArcanaLauncher(ApplicationListener application) {
         this(application, getDefaultConfiguration());
     }
 

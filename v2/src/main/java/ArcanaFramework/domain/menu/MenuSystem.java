@@ -5,7 +5,7 @@ import ArcanaFramework.domain.menu.item.MenuItemEntity;
 
 import java.util.List;
 
-public class MenuSystem extends BaseSystem {
+public class MenuSystem implements BaseSystem {
 
     /**
      * Adds a single menu item to the menu.
