@@ -29,7 +29,6 @@ public class UIText extends UIElement {
         this.color = color;
     }
 
-
     /**
      * Constructor con color por defecto (blanco).
      */
@@ -45,22 +44,14 @@ public class UIText extends UIElement {
     }
 
     /**
-     * Dibuja el texto usando SpriteBatch y BitmapFont.
+     * Renderiza el texto usando SpriteBatch y BitmapFont.
      * @param batch SpriteBatch de LibGDX
      */
-    public void draw(SpriteBatch batch) {
+    @Override
+    public void render(SpriteBatch batch) {
         if (!visible) return;
         font.setColor(color);
         font.draw(batch, text, position.x, position.y + size.y);
-    }
-
-    /**
-     * Dibuja el texto (sobrescribe el método base, pero requiere SpriteBatch externo).
-     * Lanza excepción si se llama sin SpriteBatch.
-     */
-    @Override
-    public void draw() {
-        throw new NotImplementedException("UIText requiere SpriteBatch externo para dibujar. Usa draw(SpriteBatch batch)");
     }
 
     // Getters y setters
