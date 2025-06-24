@@ -66,10 +66,9 @@ public abstract class UILayout extends UIElement {
     public abstract void layoutChildren();
 
     @Override
-    public void render(float x, float y) {
-        this.draw();
+    public void render(SpriteBatch batch) {
         for (UIElement child : children) {
-            child.render(this.getPosition().x + x, this.getPosition().y + y);
+            child.render(batch);
         }
     }
 }

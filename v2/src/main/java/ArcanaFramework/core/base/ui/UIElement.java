@@ -15,7 +15,6 @@ import ArcanaFramework.Utils.Observer;
 
 public class UIElement extends GameEntity {
     private final Observer<Object> renderTrigger;
-    private List<UIElement> children;
     private InputAdapter input;
     private float opacity = 1.0f;
     private boolean isHovered = false;
@@ -92,31 +91,9 @@ public class UIElement extends GameEntity {
         renderTrigger.setValue(null);  // Trigger render
     }
 
-    //RENDERER
-    public void render() {
-        this.render(this.getPosition().x, this.getPosition().y);
-    }
-
-    public void render(float x, float y) {
-        this.draw();
-        for (UIElement child : children) {
-            child.render(this.getPosition().x + x, this.getPosition().y + y);
-        }
-    }
-
-    public void draw()
-    {
-        throw new NotImplementedException();
-    }
-    public void onClick()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void onHover()
-    {
-        throw new NotImplementedException();
-    }
+    public void render(SpriteBatch batch) {}
+    public void onClick(){}
+    public void onHover(){}
 
 
     public float getOpacity() {
