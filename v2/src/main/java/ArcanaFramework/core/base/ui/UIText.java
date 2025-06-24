@@ -23,8 +23,8 @@ public class UIText extends UIElement {
     /**
      * Constructor principal: todos los parámetros.
      */
-    public UIText(Vector2 position, Vector2 size, String text, BitmapFont font, Color color) {
-        super(position, size, true);
+    public UIText(BatchManager batch, Vector2 position, Vector2 size, String text, BitmapFont font, Color color) {
+        super(batch, position, size, true);
         this.text = text;
         this.font = font;
         this.color = color;
@@ -33,15 +33,15 @@ public class UIText extends UIElement {
     /**
      * Constructor con color por defecto (blanco).
      */
-    public UIText(Vector2 position, Vector2 size, String text, BitmapFont font) {
-        this(position, size, text, font, Color.WHITE);
+    public UIText(BatchManager batch, Vector2 position, Vector2 size, String text, BitmapFont font) {
+        this(batch, position, size, text, font, Color.WHITE);
     }
 
     /**
      * Constructor con fuente y color por defecto.
      */
-    public UIText(Vector2 position, Vector2 size, String text) {
-        this(position, size, text, new BitmapFont(), Color.WHITE);
+    public UIText(BatchManager batch, Vector2 position, Vector2 size, String text) {
+        this(batch, position, size, text, new BitmapFont(), Color.WHITE);
     }
 
     /**
@@ -49,10 +49,10 @@ public class UIText extends UIElement {
      * @param batch SpriteBatch de LibGDX
      */
     @Override
-    public void render(SpriteBatch batch) {
+    public void render() {
         if (!visible) return;
         font.setColor(color);
-        font.draw(batch, text, position.x, position.y + size.y);
+        font.draw(this.batch, text, position.x, position.y + size.y);
     }
 
     // Getters y setters

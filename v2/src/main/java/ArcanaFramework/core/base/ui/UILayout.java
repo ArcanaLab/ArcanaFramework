@@ -69,9 +69,9 @@ public abstract class UILayout extends UIElement {
     public abstract void layoutChildren();
 
     @Override
-    public void render(SpriteBatch batch) {
+    public void render() {
         for (UIElement child : children) {
-            child.render(batch);
+            child.render();
         }
     }
 }
