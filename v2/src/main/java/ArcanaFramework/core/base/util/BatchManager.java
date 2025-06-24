@@ -10,7 +10,9 @@ public final class BatchManager {
     private static BatchManager instance;
     private final SpriteBatch batch;
 
-    private BatchManager() {}
+    private BatchManager(SpriteBatch batch) {
+        this.batch = batch;
+    }
 
     /**
      * Obtiene la instancia única del BatchManager.
@@ -18,13 +20,16 @@ public final class BatchManager {
      */
     public static BatchManager getInstance() {
         if (instance == null) {
-            instance = new BatchManager();
+            throw new IllegalStateException("BatchManager no ha sido inicializado");
         }
         return instance;
     }
 
-    public void setBatch(SpriteBatch batch) {
-        this.batch = batch;
+    public static BatchManager getInstance(SpriteBatch batch) {
+        if (instance == null) {
+            instance = new BatchManager(batch);
+        }
+        return instance;
     }
 
     /**

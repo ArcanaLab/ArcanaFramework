@@ -1,6 +1,8 @@
 package ArcanaFramework.core.base.ui;
 
 import ArcanaFramework.core.base.ui.element.UIElement;
+import ArcanaFramework.core.base.util.BatchManager;
+
 import com.badlogic.gdx.math.Vector2;
 import ArcanaFramework.core.base.enums.Orientation;
 
@@ -20,8 +22,8 @@ public class LinearLayout extends UILayout {
      * @param orientation Orientación (HORIZONTAL o VERTICAL).
      * @param spacing Espaciado entre elementos.
      */
-    public LinearLayout(Vector2 position, Vector2 size, float rotation, boolean isVisible, Orientation orientation, float spacing) {
-        super(position, size, rotation, isVisible);
+    public LinearLayout(BatchManager batch, Vector2 position, Vector2 size, boolean isVisible, Orientation orientation, float spacing) {
+        super(batch, position, size, isVisible);
         this.orientation = orientation;
         this.spacing = spacing;
     }
@@ -29,8 +31,8 @@ public class LinearLayout extends UILayout {
     /**
      * Constructor con visibilidad por defecto en true.
      */
-    public LinearLayout(Vector2 position, Vector2 size, float rotation, Orientation orientation, float spacing) {
-        this(position, size, rotation, true, orientation, spacing);
+    public LinearLayout(BatchManager batch, Vector2 position, Vector2 size, Orientation orientation, float spacing) {
+        this(batch, position, size, true, orientation, spacing);
     }
 
     /**

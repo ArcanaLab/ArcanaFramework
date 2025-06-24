@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ArcanaFramework.core.base.ui.element.UIElement;
+import ArcanaFramework.core.base.util.BatchManager;
 
 /**
  * Clase base abstracta para layouts de UI.
@@ -21,8 +22,8 @@ public abstract class UILayout extends UIElement {
      * @param rotation Rotación del layout.
      * @param isVisible Visibilidad inicial.
      */
-    public UILayout(Vector2 position, Vector2 size, float rotation, boolean isVisible) {
-        super(position, size, rotation, isVisible);
+    public UILayout(BatchManager batch, Vector2 position, Vector2 size, boolean isVisible) {
+        super(batch, position, size, isVisible);
         this.children = new ArrayList<>();
     }
 
@@ -30,10 +31,9 @@ public abstract class UILayout extends UIElement {
      * Constructor de UILayout con visibilidad por defecto en true.
      * @param position Posición del layout.
      * @param size Tamaño del layout.
-     * @param rotation Rotación del layout.
      */
-    public UILayout(Vector2 position, Vector2 size, float rotation) {
-        this(position, size, rotation, true);
+    public UILayout(BatchManager batch, Vector2 position, Vector2 size) {
+        this(batch, position, size, true);
     }
 
     /**

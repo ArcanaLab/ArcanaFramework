@@ -2,25 +2,25 @@ package ArcanaFramework.core.system.render;
 
 import ArcanaFramework.core.base.BaseSystem;
 import ArcanaFramework.core.base.ui.element.UIElement;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import ArcanaFramework.core.base.util.BatchManager;
 import java.util.List;
 import java.util.ArrayList;
 
 public class RenderSystem implements BaseSystem {
-    private SpriteBatch batch;
+    private final BatchManager batchManager;
     private List<UIElement> elements;
     
-    public RenderSystem(SpriteBatch batch) {
-        this.batch = batch;
+    public RenderSystem(BatchManager batchManager) {
+        this.batchManager = batchManager;
         this.elements = new ArrayList<>();
     }
 
     @Override
     public void update(float dt) {
-        batch.begin();
+        batchManager.getBatch().begin();
         for (UIElement e : elements) {
-            e.render(batch);
+            e.render();
         }
-        batch.end();
+        batchManager.getBatch().end();
     }
 }
