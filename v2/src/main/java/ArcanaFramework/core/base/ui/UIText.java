@@ -4,7 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import ArcanaFramework.core.base.exceptions.NotImplementedException;
+import ArcanaFramework.core.base.ui.element.UIElement;
+
 
 /**
  * Elemento de UI para mostrar texto en pantalla.

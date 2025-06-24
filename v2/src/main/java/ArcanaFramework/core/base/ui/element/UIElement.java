@@ -1,19 +1,17 @@
-package ArcanaFramework.UI;
+package ArcanaFramework.core.base.ui.element;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ArcanaFramework.GameEntity;
-import ArcanaFramework.Utils.InputManager;
+import ArcanaFramework.core.base.util.InputManager;
+import ArcanaFramework.core.base.util.Observer;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import ArcanaFramework.Utils.Observer;
 
-public class UIElement extends GameEntity {
+public class UIElement extends ElementEntity {
     private final Observer<Object> renderTrigger;
     private InputAdapter input;
     private float opacity = 1.0f;

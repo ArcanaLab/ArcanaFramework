@@ -4,6 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.ArrayList;
 import java.util.List;
 
+import ArcanaFramework.core.base.ui.element.UIElement;
+
 /**
  * Clase base abstracta para layouts de UI.
  * Permite organizar y posicionar elementos hijos de manera flexible.

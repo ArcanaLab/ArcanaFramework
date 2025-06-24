@@ -1,7 +1,7 @@
 package ArcanaFramework.core.system.render;
 
 import ArcanaFramework.core.base.BaseSystem;
-import ArcanaFramework.core.base.ui.UIElement;
+import ArcanaFramework.core.base.ui.element.UIElement;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.List;
 import java.util.ArrayList;
