@@ -10,30 +10,24 @@ public abstract class ElementEntity extends Actor {
     //Transform variables
     protected Vector2 position;
     protected Vector2 size;
-    protected float rotation;
 
     //Visibility - Controls if we hide the element
     protected boolean visible;
 
-    public ElementEntity(Vector2 position, Vector2 size, float rotation)
+    public ElementEntity(Vector2 position, Vector2 size)
     {
-        this(position,size,rotation,true);
+        this(position,size,true);
     }
-    public ElementEntity(Vector2 position, Vector2 size, float rotation, boolean visible)
+    public ElementEntity(Vector2 position, Vector2 size, boolean visible)
     {
         this.position  = position;
         this.size      = size;
-        this.rotation  = rotation;
         this.visible   = visible;
     }
     //SETTERS
     public void setPosition(float x, float y)
     {
         position.set(x, y);
-    }
-    public void setRotation(float rotation)
-    {
-        this.rotation = rotation;
     }
     public void setSize(float width, float height)
     {
@@ -53,10 +47,5 @@ public abstract class ElementEntity extends Actor {
     {
         return size;
     }
-    public float getRotation()
-    {
-        return rotation;
-    }
-
 
 }

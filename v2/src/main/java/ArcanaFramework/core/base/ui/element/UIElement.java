@@ -6,20 +6,21 @@ import java.util.List;
 import ArcanaFramework.core.base.util.InputManager;
 import ArcanaFramework.core.base.util.Observer;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 
 
 public class UIElement extends ElementEntity {
-    private final Observer<Object> renderTrigger;
+    private final Observer<SpriteBatch> renderTrigger;
     private InputAdapter input;
     private float opacity = 1.0f;
     private boolean isHovered = false;
 
     public UIElement(Vector2 position,Vector2 size)
     {
-        this(position,size,rotation,true);
+        this(position,size,true);
     }
 
     public UIElement(Vector2 position,Vector2 size, boolean isVisible)
@@ -27,11 +28,10 @@ public class UIElement extends ElementEntity {
         super(position, size, isVisible);
         // Inicializamos el observer que ejecutará el render
         this.renderTrigger = new Observer<>();
-        this.children = new ArrayList<>();
 
         // El observer ejecuta render cuando cualquier propiedad observada cambia
         this.renderTrigger.addObserver(value -> {
-            this.render();
+            this.render(value);
             Gdx.graphics.requestRendering();
         });
         initializeInput();
@@ -75,18 +75,14 @@ public class UIElement extends ElementEntity {
             y >= position.y && y <= position.y + size.y;
     }
 
-    //SETTERS
-    // Metodo para actualizar la posición
     public void setPosition(float x, float y) {
         super.setPosition(x, y);
-        // Notificamos al observer para que ejecute el render
-        renderTrigger.setValue(null);  // El valor no importa, solo queremos triggear el render
+        renderTrigger.setValue(null);
     }
 
-    // Cualquier otra propiedad que quieras que cause un render
     public void setSize(float width, float height) {
         super.setSize(width, height);
-        renderTrigger.setValue(null);  // Trigger render
+        renderTrigger.setValue(null);
     }
 
     public void render(SpriteBatch batch) {}

@@ -1,5 +1,6 @@
 package ArcanaFramework.core.base.ui;
 
+import ArcanaFramework.core.base.ui.element.UIElement;
 import com.badlogic.gdx.math.Vector2;
 import ArcanaFramework.core.base.enums.Orientation;
 
