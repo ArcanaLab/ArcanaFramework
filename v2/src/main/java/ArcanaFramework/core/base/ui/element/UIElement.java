@@ -3,6 +3,7 @@ package ArcanaFramework.core.base.ui.element;
 import java.util.ArrayList;
 import java.util.List;
 
+import ArcanaFramework.core.base.util.BatchManager;
 import ArcanaFramework.core.base.util.InputManager;
 import ArcanaFramework.core.base.util.Observer;
 
@@ -13,25 +14,30 @@ import com.badlogic.gdx.math.Vector2;
 
 
 public class UIElement extends ElementEntity {
-    private final Observer<SpriteBatch> renderTrigger;
+    private final BatchManager batchManager;
+    protected final SpriteBatch batch;
+
+    private final Observer<Object> renderTrigger;
     private InputAdapter input;
     private float opacity = 1.0f;
     private boolean isHovered = false;
 
-    public UIElement(Vector2 position,Vector2 size)
+    public UIElement(BatchManager batch, Vector2 position,Vector2 size)
     {
-        this(position,size,true);
+        this(batch, position,size,true);
     }
 
-    public UIElement(Vector2 position,Vector2 size, boolean isVisible)
+    public UIElement(BatchManager batch, Vector2 position,Vector2 size, boolean isVisible)
     {
         super(position, size, isVisible);
         // Inicializamos el observer que ejecutará el render
         this.renderTrigger = new Observer<>();
+        this.batchManager = batch;
+        this.batch = batchManager.getBatch();
 
         // El observer ejecuta render cuando cualquier propiedad observada cambia
         this.renderTrigger.addObserver(value -> {
-            this.render(value);
+            this.render();
             Gdx.graphics.requestRendering();
         });
         initializeInput();
@@ -85,7 +91,7 @@ public class UIElement extends ElementEntity {
         renderTrigger.setValue(null);
     }
 
-    public void render(SpriteBatch batch) {}
+    public void render() {}
     public void onClick(){}
     public void onHover(){}
 
